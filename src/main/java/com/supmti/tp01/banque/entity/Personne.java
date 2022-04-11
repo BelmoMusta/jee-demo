@@ -1,11 +1,22 @@
 package com.supmti.tp01.banque.entity;
 
 public class Personne {
+    private Long id;
     private String nom;
     private String prenom;
+    private String dateNaissance;
 
     private Personne() {
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
     public String getNom() {
         return nom;
@@ -21,6 +32,14 @@ public class Personne {
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
+    }
+
+    public void setDateNaissance(String dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+
+    public String getDateNaissance() {
+        return dateNaissance;
     }
 
     public static class PersonneBuilder {
@@ -43,6 +62,11 @@ public class Personne {
 
         public Personne build() {
             return this.personne;
+        }
+
+        public PersonneBuilder dateNaissance(String dateNaissance) {
+            this.personne.setDateNaissance(dateNaissance);
+            return this;
         }
     }
 }

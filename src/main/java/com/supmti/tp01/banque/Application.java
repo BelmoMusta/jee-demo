@@ -1,7 +1,7 @@
 package com.supmti.tp01.banque;
 
-import com.supmti.tp01.banque.service.BanqueService;
-import com.supmti.tp01.banque.servlet.BanqueServlet;
+import com.supmti.tp01.banque.service.impl.BanqueService;
+import com.supmti.tp01.banque.service.api.BanqueServiceInterface;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -15,7 +15,7 @@ public class Application  implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext context = sce.getServletContext();
-        BanqueService service = new BanqueService();
+        BanqueServiceInterface service = new BanqueService();
         context.setAttribute("banqueService", service);
     }
 

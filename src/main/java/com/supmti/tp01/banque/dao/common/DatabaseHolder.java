@@ -11,13 +11,13 @@ public class DatabaseHolder {
     public static final String CONNECTION_STRING = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1";
     public static final String USER = "sa";
     public static final String PASSWORD = "";
-    private DataSource dataSource;
+    private final DataSource dataSource;
 
     public DatabaseHolder() {
         try {
             dataSource = JdbcConnectionPool.create(CONNECTION_STRING, USER, PASSWORD);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            throw new RuntimeException(ex);
         }
     }
 
